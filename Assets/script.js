@@ -1,6 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-console.log(generateBtn)
 
 // all possible password critera 
 var pswrdCriteria = {
@@ -18,17 +17,38 @@ var pswrdCriteria = {
   "-",".","/","\\",":",";","<",">","=","?","@","[","]","^","_","`","{","}","|","~"]
 
 }
+console.log(pswrdCriteria);
 
 // function that creates password based on user input
 
 var createPassword = function() {
   // empty string to hold password
   var final = ""
+  var newCriteria = []
   // set user input to variables to use with conditionals
-  var lowerCase = confirm("Do you want to use lower case letters?");
-  var upperCase = confirm("Do you want to use upper case letters?");
-  var numbers = confirm("Do you want to use numbers?");
-  var specialChar = confirm("Do you want to use any special characters?");
+  var passwordLength = 0
+    // force user to pick length between 8 and 124
+    while (passwordLength < 8 || passwordLength > 124) {
+      passwordLength = prompt("How many characters would you like your password to have? (8-124).");
+    }
+    
+    var lowerCase = confirm("Would you like your password to include lower case letters?");
+    if (lowerCase) {
+      newCriteria += pswrdCriteria.lCase;
+    }
+    var upperCase = confirm("Would you like your password to include upper case letters?");
+    if (upperCase) {
+      newCriteria += pswrdCriteria.uCase;
+    }
+    var numbers = confirm("Would you like your password to include numbers?");
+    if (numbers) {
+      newCriteria += pswrdCriteria.number;
+    }
+    var special = confirm("Would you like your password to include special characters?");
+    if (upperCase) {
+      newCriteria += pswrdCriteria.special;
+    }
+    console.log(newCriteria)
 
 }
 
