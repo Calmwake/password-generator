@@ -3,7 +3,6 @@ var generateBtn = document.querySelector("#generate");
 
 // all possible password critera 
 var pswrdCriteria = {
-  length: 0,
   
   lCase: ["a","b","c","d","e","f","g","h","i","j","k","l",
   "m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
@@ -17,21 +16,19 @@ var pswrdCriteria = {
   "-",".","/","\\",":",";","<",">","=","?","@","[","]","^","_","`","{","}","|","~"]
 
 }
-console.log(pswrdCriteria);
 
 // function that creates password based on user input
 
 var createPassword = function() {
   // empty string to hold password
   var final = ""
-  var newCriteria = []
-  // set user input to variables to use with conditionals
+  // set variable to password length so user can input
   var passwordLength = 0
     // force user to pick length between 8 and 124
     while (passwordLength < 8 || passwordLength > 124) {
       passwordLength = prompt("How many characters would you like your password to have? (8-124).");
     }
-    // 
+    // prompt user on what character to include, validate their answer
     var lowerCase = confirm("Would you like your password to include lower case letters?");
     if (lowerCase) {
       alert("Lower case letters included.");
@@ -61,17 +58,24 @@ var createPassword = function() {
       alert("Excluded")
     }
     
-    // while loop that takes random character of each specific group
+    // while loop that takes random character of each specific group while password is less than request length
     while (final.length < passwordLength) {
-      randomIndex
       
-      if (upperCase) {
-        pswrdCriteria.uCase[Math.random() * 26]
+      if (lowerCase) {
+        final += pswrdCriteria.lCase[Math.floor(Math.random() * 26)];
+      }
+      if (upperCase && final.length <passwordLength) {
+        final += pswrdCriteria.uCase[Math.floor(Math.random() * 26)];
+      }
+      if (numbers && final.length <passwordLength) {
+        final += pswrdCriteria.number[Math.floor(Math.random() * 10)];
+      }
+      if (special && final.length <passwordLength) {
+        final += pswrdCriteria.special[Math.floor(Math.random() * 32)];
       }
     }
-
+    return final;
 }
-
 
 
 // Write password to the #password input
