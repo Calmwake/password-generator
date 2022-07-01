@@ -1,21 +1,56 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+console.log(generateBtn)
 
-// add listner to generate button
-// once clicked, display series of window prompts to determine password specifications
-// create function to run prompts to user
-// store each character information in it's own array
-// start prompts with password length
-// based off which criteria is chosen by the user, 
+// all possible password critera 
+var pswrdCriteria = {
+  length: 0,
+  
+  lCase: ["a","b","c","d","e","f","g","h","i","j","k","l",
+  "m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
+  
+  uCase:["A","B","C","D","E","F","G","H","I","J","K","L",
+  "M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  number:[0,1,2,3,4,5,6,7,8,9],
 
-  passwordText.value = password;
+  special:["!","\"","#","$","%","&","\'","(",")","*","+",",",
+  "-",".","/","\\",":",";","<",">","=","?","@","[","]","^","_","`","{","}","|","~"]
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// function that creates password based on user input
+
+var createPassword = function() {
+  // empty string to hold password
+  var final = ""
+  // set user input to variables to use with conditionals
+  var lowerCase = confirm("Do you want to use lower case letters?");
+  var upperCase = confirm("Do you want to use upper case letters?");
+  var numbers = confirm("Do you want to use numbers?");
+  var specialChar = confirm("Do you want to use any special characters?");
+
+}
+
+
+
+// Write password to the #password input
+var writePassword = function() {
+  // call function to create password
+  var password = createPassword();
+  // asign the text area to a variable so it can be changed with the new password
+  var passwordText = document.querySelector("#password");
+
+  //update the textArea with the new password
+  passwordText.value = password;
+}
+  
+  generateBtn.addEventListener("click", writePassword);
+  
+  
+
+  
+
+
+
+
