@@ -31,24 +31,44 @@ var createPassword = function() {
     while (passwordLength < 8 || passwordLength > 124) {
       passwordLength = prompt("How many characters would you like your password to have? (8-124).");
     }
-    
+    // 
     var lowerCase = confirm("Would you like your password to include lower case letters?");
     if (lowerCase) {
-      newCriteria += pswrdCriteria.lCase;
+      alert("Lower case letters included.");
+    }
+    else {
+      alert("Excluded")
     }
     var upperCase = confirm("Would you like your password to include upper case letters?");
     if (upperCase) {
-      newCriteria += pswrdCriteria.uCase;
+      alert("Upper case letters included.");
+    }
+    else {
+      alert("Excluded")
     }
     var numbers = confirm("Would you like your password to include numbers?");
     if (numbers) {
-      newCriteria += pswrdCriteria.number;
+      alert("Numbers included.");
+    }
+    else {
+      alert("Excluded")
     }
     var special = confirm("Would you like your password to include special characters?");
-    if (upperCase) {
-      newCriteria += pswrdCriteria.special;
+    if (special) {
+      alert("Special characters included.");
     }
-    console.log(newCriteria)
+    else {
+      alert("Excluded")
+    }
+    
+    // while loop that takes random character of each specific group
+    while (final.length < passwordLength) {
+      randomIndex
+      
+      if (upperCase) {
+        pswrdCriteria.uCase[Math.random() * 26]
+      }
+    }
 
 }
 
